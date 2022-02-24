@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import Ideas from './components/Ideas';
+import Register from './components/Register';
+import Admin from './components/Admin';
+import AdminPanel from './components/AdminPanel';
+import TransactionsProvider from './context/TransactionContext';
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+    <Router>
+      <Switch>
+        <TransactionsProvider>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/bid" component={Ideas} />
+          <Route exact path="/registration" component={Register} />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/adminpanel" component={AdminPanel} />
+        </TransactionsProvider>
+      </Switch>
+    </Router>
+
+
   );
 }
 

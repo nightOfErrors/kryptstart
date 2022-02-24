@@ -1,0 +1,82 @@
+.ideasItemContainer {
+  width: 70%;
+  background-color: #101424;
+  /* flex-wrap: wrap; */
+  overflow-x: auto;
+  display: flex;
+  /* flex-direction: column; */
+  height: 350px;
+  padding: 10px;
+  /* min-width: 400px; */
+  justify-content: space-around;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 645px) {
+  .muEthCard {
+    display: none;
+  }
+  .ideasItemContainer {
+    width: 90%;
+    background-color: #101424;
+    overflow-x: auto;
+    /* flex-wrap: wrap; */
+    height: 350px;
+    padding: 10px;
+    /* min-width: 400px; */
+    /* flex-direction: column; */
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    /* border: 2px solid green; */
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .ideasItemContainer {
+    width: 95%;
+    background-color: #101424;
+    overflow-x: auto;
+    /* flex-wrap: wrap; */
+    height: 350px;
+    padding: 10px;
+    /* min-width: 400px; */
+    /* flex-direction: column; */
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    /* border: 2px solid green; */
+  }
+}
+
+.transactionInside {
+  width: 65%;
+  /* height: 200px; */
+  background-color: #191819;
+  border-radius: 50px 50px 20px 20px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding-bottom: 20px;
+}
+
+.transacs {
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.75);
+}
+
+/* .transactionsContainer {
+  height: 250px;
+} */
+
+@media only screen and (max-width: 645px) {
+  .transactionsContainer {
+    height: 250px;
+  }
+  .transactionInside {
+    width: 95%;
+    height: 75px;
+    background-color: #191819;
+    border-radius: 35px;
+  }
+}

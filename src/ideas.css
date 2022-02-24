@@ -1,0 +1,142 @@
+.majorContainer {
+  /* border: 2px solid red; */
+  /* height: 500px; */
+  width: 70%;
+  display: flex;
+  /* flex-flow: column; */
+  flex-wrap: wrap;
+  /* margin: 20px; */
+}
+
+.header {
+  width: 100%;
+  height: 55px;
+  /* border: 2px solid pink; */
+}
+
+.imagePamentContainer {
+  /* border: 2px solid black; */
+  width: 100%;
+  /* height: 400px; */
+  display: flex;
+}
+
+.image {
+  border: 2px solid white;
+  width: 70%;
+
+  /* margin-top: 20px; */
+  height: 100%;
+}
+
+.paymentContainer {
+  padding: 20px;
+  /* min-width: 300px; */
+  flex-grow: 1;
+  display: flex;
+  /* border: 2px solid green; */
+  /* max-width: 300px; */
+}
+
+.payment {
+  /* width: 300px; */
+  width: 100%;
+  /* margin-top: 50px; */
+  /* flex-grow: 1; */
+}
+
+@media only screen and (max-width: 1110px) {
+  .imagePamentContainer {
+    /* border: 2px solid black; */
+    width: 100%;
+    /* height: 400px; */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image {
+    border: 2px solid white;
+    width: 100%;
+    /* margin-top: 20px; */
+    height: 400px;
+  }
+
+  .paymentContainer {
+    padding: 20px;
+    /* min-width: 300px; */
+    width: 100%;
+    display: flex;
+    /* border: 2px solid green; */
+    /* max-width: 300px; */
+  }
+
+  .paybox {
+    width: 97%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  
+  .majorContainer {
+    width: 100%;
+  }
+
+  .image {
+    border: 2px solid white;
+    width: 100%;
+    /* margin-top: 20px; */
+    height: 270px;
+  }
+
+  .paybox {
+    width: 97%;
+    height: 400px;
+  }
+
+  /* .transactions {
+    width: 95vw;
+    border: 2px solid red;
+  } */
+
+  .description {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .differentiatingLine {
+    color: rgb(156, 163, 175);
+    width: 95%;
+    margin-top: 7px;
+    height: 3px;
+  }
+
+}
+
+.transactions {
+  width: 70%;
+  /* border: 2px solid red; */
+}
+
+.differentiatingLine {
+  color: rgb(156, 163, 175);
+  width: 70%;
+  margin-top: 7px;
+  height: 3px;
+}
+
+.description {
+  width: 70%;
+  padding: 15px;
+}
+
+.paybox {
+  box-shadow: 0px 8px 11px 5px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 8px 11px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 8px 11px 5px rgba(0, 0, 0, 0.75);
+}
+
+.inTransaction {
+  box-shadow: 0px -119px 67px -12px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 0px -119px 67px -12px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 0px -119px 67px -12px rgba(0, 0, 0, 0.75) inset;
+}

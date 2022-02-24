@@ -1,0 +1,35 @@
+.approvalButton {
+  border: 2px solid white;
+  margin-top: 10px;
+  color: white;
+  width: 60%;
+  height: 80%;
+  border-radius: 25px;
+}
+
+.approvalButton:hover {
+  border: 2px solid white;
+  margin-top: 10px;
+  color: white;
+  width: 60%;
+  height: 80%;
+  border-radius: 25px;
+  background-color: #037362;
+}
+
+.adminDataContainer {
+  position: absolute;
+  top:200px;
+  width: 30%;
+  height: 50%;
+  background-color: #101424;
+  box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.75);
+}
+
+@media only screen and (max-width: 737px) {
+    .adminDataContainer {
+      width: 85%;
+    }
+  }
