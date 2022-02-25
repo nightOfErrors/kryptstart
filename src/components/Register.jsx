@@ -42,10 +42,10 @@ const Register = () => {
 
     const subbmitData = () => {
 
-        // if (!userData.About || !userData.Amount_Required || !userData.Contact_Number || !userData.ETH_Address || !userData.Insta_Or_Web || !userData.StartUp_Name || !userData.Total_ETH_Got || !userData.What_It_Do) {
-        //     alert("Pleasse Enter All The Details!")
-        //     return
-        // }
+        if (!userData.About || !userData.Amount_Required || !userData.Contact_Number || !userData.ETH_Address || !userData.Insta_Or_Web || !userData.StartUp_Name || !userData.Total_ETH_Got || !userData.What_It_Do) {
+            alert("Pleasse Enter All The Details!")
+            return
+        }
 
         const uploadImage = app.storage().ref(`images/${image.name}`).put(image);
         uploadImage.on(
