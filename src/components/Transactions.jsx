@@ -68,7 +68,7 @@ const Transactions = () => {
     }
 
 
-    return (<div className=" transactionsContainer gradient-bg-transactions flex justify-center items-center">
+    return (<div style={{marginTop:'15px'}} className=" transactionsContainer gradient-bg-transactions flex justify-center items-center">
 
 
         <div className="transactionInside">

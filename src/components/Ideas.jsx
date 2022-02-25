@@ -93,7 +93,7 @@ const Ideas = (props) => {
 
                     <div className="majorContainer">
 
-                        {/* <div style={{ display: 'flex', flexFlow: 'column' }} className="header">
+                        <div style={{ display: 'flex', flexFlow: 'column' }} className="header">
                             <div>
                                 <b>
                                     <p style={{ color: 'white', fontSize: '30px', fontFamily: 'sans-serif', marginLeft: '5px' }} className="heading">
@@ -101,15 +101,15 @@ const Ideas = (props) => {
                                     </p>
                                 </b>
                             </div>
-                        </div> */}
+                        </div>
 
                         <div className="imagePamentContainer">
 
-                            <div className="image" style={{ backgroundImage: `url(${state.image})`, backgroundSize: 'cover', position: 'relative' }}>
-                                <div style={{position:'absolute', bottom:'2px'}}>
+                            <div className="image" style={{ backgroundImage: `url(${state.image})`, backgroundSize: 'cover' }}>
+                                {/* <div style={{display:'flex'}}>
                                     <b><p style={{ color: "white", marginLeft: '7px', fontFamily: 'sans-serif', fontSize:'30px' }} >{state.StartUp_Name}</p></b>
-                                    <b><p style={{ color: "#36454F", marginLeft: '7px', fontFamily: 'sans-serif', marginTop:'-5px', fontSize:'20px' }} >{state.What_It_Do}</p></b>
-                                </div>
+                                    <b><p style={{ color: "#36454F", marginTop:'12px' , marginLeft: '7px', fontFamily: 'sans-serif', fontSize:'20px' }} >{state.What_It_Do}</p></b>
+                                </div> */}
                             </div>
 
                             <div className="paymentContainer">
@@ -163,10 +163,10 @@ const Ideas = (props) => {
                     <div className="transactions">
 
                         {/* <hr style={{ color: 'rgb(156,163,175)', width: '100%', marginTop: '5px', height: '3px' }} /> */}
-                        <div style={{ marginTop: '30px' }}>
+                        <div style={{ marginTop: '40px' }}>
                             <b><p style={{ color: '#AAFF00', fontSize: '20px' }}>All Transactions</p></b>
 
-                            <div style={{ backgroundColor: '#191819', display: 'flex', borderRadius: '10px', padding: '15px', height: '150px', width: '100%', marginTop: '14px', marginBottom: '70px' }}>
+                            <div style={{ backgroundColor: '#191819', display: 'flex', borderRadius: '10px', padding: '15px', height: '150px', width: '100%', marginTop: '13px', marginBottom: '70px' }}>
 
                                 {
                                     !setter.length && (
