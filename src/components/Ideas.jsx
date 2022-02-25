@@ -81,7 +81,7 @@ const Ideas = (props) => {
     }
 
 
-
+    // console.log(state.What_It_Do)
 
     return (
 
@@ -93,7 +93,7 @@ const Ideas = (props) => {
 
                     <div className="majorContainer">
 
-                        <div style={{ display: 'flex', flexFlow: 'column' }} className="header">
+                        {/* <div style={{ display: 'flex', flexFlow: 'column' }} className="header">
                             <div>
                                 <b>
                                     <p style={{ color: 'white', fontSize: '30px', fontFamily: 'sans-serif', marginLeft: '5px' }} className="heading">
@@ -101,12 +101,15 @@ const Ideas = (props) => {
                                     </p>
                                 </b>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="imagePamentContainer">
 
-                            <div className="image">
-
+                            <div className="image" style={{ backgroundImage: `url(${state.image})`, backgroundSize: 'cover', position: 'relative' }}>
+                                <div style={{position:'absolute', bottom:'2px'}}>
+                                    <b><p style={{ color: "white", marginLeft: '7px', fontFamily: 'sans-serif', fontSize:'30px' }} >{state.StartUp_Name}</p></b>
+                                    <b><p style={{ color: "#36454F", marginLeft: '7px', fontFamily: 'sans-serif', marginTop:'-5px', fontSize:'20px' }} >{state.What_It_Do}</p></b>
+                                </div>
                             </div>
 
                             <div className="paymentContainer">
@@ -125,7 +128,7 @@ const Ideas = (props) => {
                                             </div>
 
                                             <div>
-                                                <b><p style={{ color: '#E8E8E8', fontSize: '12px', fontFamily: 'sans-serif', marginTop: '3px' }}>{ setter.length } poeple backed this project</p></b>
+                                                <b><p style={{ color: '#E8E8E8', fontSize: '12px', fontFamily: 'sans-serif', marginTop: '3px' }}>{setter.length} poeple backed this project</p></b>
                                             </div>
 
                                             <div style={{ marginTop: '12px' }} className="h-[1px] w-full bg-gray-400 my-2" />
@@ -165,11 +168,11 @@ const Ideas = (props) => {
 
                             <div style={{ backgroundColor: '#191819', display: 'flex', borderRadius: '10px', padding: '15px', height: '150px', width: '100%', marginTop: '14px', marginBottom: '70px' }}>
 
-                                { 
+                                {
                                     !setter.length && (
                                         <h3 style={{ color: 'white', marginTop: '35px', left: '50%', transform: 'translate(-50%, 0)', position: 'absolute' }}>Be the first to back this project.</h3>
                                     )
-                                } 
+                                }
                                 {setter.map(transit => <InnerTransit allData={transit} />)}
 
 

@@ -1,7 +1,8 @@
 import Navbar from "./Navbar";
 import '../register.css';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import db from '../firebase';
+import { app } from "../firebase";
 
 
 const Register = () => {
@@ -14,27 +15,53 @@ const Register = () => {
         ETH_Address: "",
         Insta_Or_Web: "",
         StartUp_Name: "",
-        Total_ETH_Got:"",
+        Total_ETH_Got: "",
         What_It_Do: "",
+        image: ""
     });
+
+    const [image, setImage] = useState(null);
 
     let name, value;
 
     function handleSubmmit(e) {
 
+        if (e.target.name === "image") {
+            if (e.target.files[0]) {
+                setImage(e.target.files[0]);
+            }
+        }
+
         name = e.target.name;
         value = e.target.value;
 
-        setUserData({...userData, [name]:value})
+        setUserData({ ...userData, [name]: value })
+
 
     }
 
-    function subbmitData(){
+    const subbmitData = () => {
 
-        if(!userData.About || !userData.Amount_Required || !userData.Contact_Number || !userData.ETH_Address || !userData.Insta_Or_Web || !userData.StartUp_Name || !userData.Total_ETH_Got || !userData.What_It_Do){
-            alert("Pleasse Enter All The Details!")
-            return
-        }
+        // if (!userData.About || !userData.Amount_Required || !userData.Contact_Number || !userData.ETH_Address || !userData.Insta_Or_Web || !userData.StartUp_Name || !userData.Total_ETH_Got || !userData.What_It_Do) {
+        //     alert("Pleasse Enter All The Details!")
+        //     return
+        // }
+
+        const uploadImage = app.storage().ref(`images/${image.name}`).put(image);
+        uploadImage.on(
+            "state_changed",
+            snapshot => {},
+            error => {
+                console.log(error);
+            },
+            async () => {
+                await app.storage().ref("images").child(image.name).getDownloadURL().then(url => {
+                    console.log(url)
+                    setUserData({ ...userData, image: url })
+                });
+            }
+        )
+        // console.log(userData)
 
         db.collection('startups').add({
             About: userData.About,
@@ -45,6 +72,7 @@ const Register = () => {
             StartUp_Name: userData.StartUp_Name,
             Total_ETH_Got: Number(userData.Total_ETH_Got),
             What_It_Do: userData.What_It_Do,
+            image : userData.image,
             dashboard: false,
         })
 
@@ -68,7 +96,10 @@ const Register = () => {
                                     <input onChange={handleSubmmit} name="Contact_Number" placeholder="Contact Number" type="text" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
                                     <input onChange={handleSubmmit} name="Insta_Or_Web" style={{ marginLeft: '2px' }} placeholder="Instagram or Website Link" type="text" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
                                 </div>
-                                <input onChange={handleSubmmit} name="Amount_Required" placeholder="Amount Required (ETH)" type="number" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+                                <div style={{ display: 'flex' }}>
+                                    <input onChange={handleSubmmit} name="Amount_Required" placeholder="Amount Required (ETH)" type="number" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+                                    <input onChange={handleSubmmit} name="image" style={{ marginLeft: '2px' }} type="file" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+                                </div>
                                 <input onChange={handleSubmmit} name="About" placeholder="Enter The Description In Brief" style={{ height: '150px' }} type="text" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
 
                                 {/* <div className="h-[1px] w-full bg-gray-400 my-2" /> */}

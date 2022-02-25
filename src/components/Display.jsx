@@ -36,7 +36,7 @@ const Display = () => {
     return (
         <div style={{width:'100%'}} className="flex justify-center items-center">
             <div className="ideasItemContainer">
-                    {bids.map(bid => <DisplayItem EntireData={bid} id={bid.ETH_Address} address={bid.ETH_Address} bidDisplay={bid.dashboard} name={bid.StartUp_Name} work={bid.What_It_Do} about={bid.About} amount={bid.Amount_Required} />)}
+                    {bids.map(bid => <DisplayItem EntireData={bid} id={bid.ETH_Address} address={bid.ETH_Address} image={bid.image} bidDisplay={bid.dashboard} name={bid.StartUp_Name} work={bid.What_It_Do} about={bid.About} amount={bid.Amount_Required} />)}
             </div>
         </div>
     );

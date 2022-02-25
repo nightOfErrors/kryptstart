@@ -69,7 +69,7 @@ const DisplayItem = (props) => {
     return (
         <Link to={{ pathname: "/bid", state: AllStartUpsData }} style={itemStyle}>
 
-            <div style={{ border: '2px solid black', width: '100%', height: "45%" }}>
+            <div style={{ border: '1px solid black', width: '100%', height: "45%", backgroundImage: `url(${props.image})`, backgroundSize:'cover' }}>
 
             </div>
             <div style={{ flexFlow: '1', maxHeight: '105px', overflow: 'hidden', padding: '2px', paddingLeft: '12px', paddingRight: '12px' }}>
