@@ -4,6 +4,7 @@ import { useState } from "react";
 import db from '../firebase';
 
 import { useHistory } from "react-router-dom";
+import { Alert } from "@mui/material";
 
 const Admin = () => {
 
@@ -25,7 +26,7 @@ const Admin = () => {
             if (snapshot.data().username == adminData.username && adminData.pin == snapshot.data().pin){
                 history.push('/adminpanel')
             }else{
-                console.log("Incorrect Username or Password!")
+                Alert("Incorrect Username or Password!")
             }
         })
     }
