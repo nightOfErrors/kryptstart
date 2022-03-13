@@ -12,6 +12,22 @@
   border-radius: 20px;
 }
 
+@media only screen and (max-width: 708px) {
+  .zindex{
+    /* display: block; */
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: absolute;
+    border-radius: 25px;
+    opacity: 0.95;
+    margin-top: 15px;
+  }
+}
+
+
+
 @media only screen and (max-width: 645px) {
   .muEthCard {
     display: none;

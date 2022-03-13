@@ -19,12 +19,10 @@ const createEthereumContract = () => {
 }
 
 
-
 const TransactionsProvider = ({ children }) => {
 
     const [currentAccount, setCurrentAccount] = useState();
     const [transactioData, setTransactionData] = useState({
-        addressTo : "",
         amount: "",
         keyword: "",
         message: "",
@@ -94,6 +92,7 @@ const TransactionsProvider = ({ children }) => {
             }
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             setCurrentAccount(accounts[0]);
+            window.location.reload()
         } catch (error) {
             console.log(error);
         }
@@ -107,9 +106,11 @@ const TransactionsProvider = ({ children }) => {
         setTransactionData({ ...transactioData, [name]: value })
     }
 
+    const[ideaAddress, setIdeaAddress] = useState()
+    // console.log(ideaAddress)
     const sendTransaction = async () => {
 
-        if(!transactioData.addressTo || !transactioData.amount || !transactioData.keyword || !transactioData.message){
+        if(!transactioData.amount || !transactioData.keyword || !transactioData.message){
             alert("Please Fill All The Details.")
             return
         }
@@ -124,14 +125,14 @@ const TransactionsProvider = ({ children }) => {
             method: 'eth_sendTransaction',
             params: [{
                 from: currentAccount,
-                to: transactioData.addressTo,
+                to: ideaAddress,
                 gas: "0x5208",
                 value: parsedAmount._hex
             }]
         })
         console.log(transactioData);
 
-        const transactionHash = await transactionsContract.addTransaction(transactioData.addressTo, parsedAmount, transactioData.keyword, transactioData.message)
+        const transactionHash = await transactionsContract.addTransaction(ideaAddress, parsedAmount, transactioData.keyword, transactioData.message)
         const innerTransationCount = await transactionsContract.transactionCount();
 
         setTransactionCount(innerTransationCount.toString());
@@ -148,7 +149,7 @@ const TransactionsProvider = ({ children }) => {
     }
     // console.log(transactionCount);
     return (
-        <ContextProvider.Provider value={{ connectToWallet, currentAccount, getTransactionData, sendTransaction, recievedTransactions }}>
+        <ContextProvider.Provider value={{ connectToWallet, currentAccount, getTransactionData, sendTransaction, recievedTransactions, ideaAddress, setIdeaAddress }}>
             {children}
         </ContextProvider.Provider>
     );

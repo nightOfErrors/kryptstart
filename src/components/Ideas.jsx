@@ -45,13 +45,17 @@ const InnerTransit = (props) => {
 
 const Ideas = (props) => {
 
-    const { getTransactionData, sendTransaction, recievedTransactions } = useContext(ContextProvider);
+    const { getTransactionData, sendTransaction, recievedTransactions, setIdeaAddress } = useContext(ContextProvider);
     const [transactionsArray, setTransactionsArray] = useState([]);
 
     const { state } = props.location;
 
 
     let setter = [];
+
+    useEffect(()=>{
+        setIdeaAddress(state.ETH_Address)
+    }, [])
 
     let totalAmountCalculated = 0;
 
@@ -136,7 +140,7 @@ const Ideas = (props) => {
                                         </div>
                                         <div style={{ marginTop: '8px' }}>
                                             {/* <p style={{color:'white'}}>{state.ETH_Address}</p> */}
-                                            <input placeholder="Address To" onChange={getTransactionData} name="addressTo" type="text" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+                                            {/* <input placeholder="Address To" onChange={getTransactionData} name="addressTo" type="text" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" /> */}
                                             <input placeholder="Amount (ETH)" onChange={getTransactionData} name="amount" type="number" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
                                             <input placeholder="Keyword (Gif)" onChange={getTransactionData} name="keyword" type="text" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
                                             <input placeholder="Enter Message" onChange={getTransactionData} name="message" type="text" className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />

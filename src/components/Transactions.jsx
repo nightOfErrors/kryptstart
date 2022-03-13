@@ -21,18 +21,18 @@ const AllTransactions = (props) => {
         }).then((data) => {
             const setGifUrl = data.data[0].images.downsized_medium.url
             setRecievedUrl(setGifUrl)
-        }).catch((error)=>{
+        }).catch((error) => {
             const setGifUrl = 'https://metro.co.uk/wp-content/uploads/2015/05/pokemon_crying.gif?quality=90&strip=all&zoom=1&resize=500%2C284'
             setRecievedUrl(setGifUrl)
         })
-    } 
+    }
 
-    useEffect(()=>{
+    useEffect(() => {
         gifUrl(gifKey)
-    },[])
+    }, [])
 
-    
-    return (<img src={recievedUrl} alt="gif" onClick={() => props.setBoard(props.id, recievedUrl)} className="transacs" style={{ width: '65px', height: '65px', border:'3px solid black', borderRadius: '100px', marginTop: '10px', marginLeft:'7px' }}></img>);
+
+    return (<img src={recievedUrl} alt="gif" onClick={() => props.setBoard(props.id, recievedUrl)} className="transacs" style={{ width: '65px', height: '65px', border: '3px solid black', borderRadius: '100px', marginTop: '10px', marginLeft: '7px' }}></img>);
 }
 
 const Transactions = () => {
@@ -68,10 +68,14 @@ const Transactions = () => {
     }
 
 
-    return (<div style={{marginTop:'15px'}} className=" transactionsContainer gradient-bg-transactions flex justify-center items-center">
+    return (<div style={{ marginTop: '15px' }} className=" transactionsContainer gradient-bg-transactions flex justify-center items-center">
 
 
-        <div className="transactionInside">
+        <div className="transactionInside" >
+
+            <div>
+                <b><p style={{color:'white', marginTop:'30px', marginLeft:'20px', marginBottom:'15px', fontSize:'27px'}}>All Transactions</p></b>
+            </div>
 
             <div style={{ display: 'flex', paddingLeft: '7px' }}>
                 {recievedTransactions.map(transaction => <AllTransactions gif={transaction.keyword} id={transaction.id} key={transaction.id} setBoard={displayBoard} />)}
@@ -85,7 +89,7 @@ const Transactions = () => {
 
                     </img>
 
-                    <div style={{ paddingLeft: '10px', marginRight: '30px', marginLeft:'2px' }}>
+                    <div style={{ paddingLeft: '10px', marginRight: '30px', marginLeft: '2px' }}>
                         <b><p style={{ color: 'white', fontSize: '23px' }}># {dispalyTransaction.from}</p></b>
                         <p style={{ color: '#65676B' }}>To {dispalyTransaction.to}</p>
                         <div style={{ height: '50px', paddingTop: '17px', marginLeft: '5px' }}>

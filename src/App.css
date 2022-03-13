@@ -1,1 +1,5 @@
-
+@media only screen and (max-width: 708px) {
+ body {
+    overflow-y: hidden;
+  }
+}
